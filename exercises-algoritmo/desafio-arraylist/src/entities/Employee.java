@@ -2,17 +2,17 @@ package entities;
 
 public class Employee {
 
-    public int id;
-    public String name;
-    public double salary;
+    private Integer id;
+    private String name;
+    private Double salary;
 
-    public Employee(int id, String name, double salary) {
+    public Employee(Integer id, String name, Double salary) {
         this.id = id;
         this.name = name;
         this.salary = salary;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -20,11 +20,11 @@ public class Employee {
         return name;
     }
 
-    public double getSalary() {
+    public Double getSalary() {
         return salary;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -32,16 +32,16 @@ public class Employee {
         this.name = name;
     }
 
-    public void setSalary(double salary) {
+    public void setSalary(Double salary) {
         this.salary = salary;
+    }
+
+    public void increaseSalary(double percentage) {
+        salary += salary * percentage / 100.0;
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", salary=" + salary +
-                '}';
+        return String.format("%d, %s, %.2f ", id, name, salary);
     }
 }
